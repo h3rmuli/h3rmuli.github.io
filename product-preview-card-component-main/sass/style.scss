@@ -1,6 +1,22 @@
 @use './colors/colors' as c;
-@import '../../node_modules/normalize-scss/sass/normalize';
+@import '../../node_modules/normalize-scss/sass/normalize/import-now';
 
 body {
-  background-color: c.$veryDarkBlue;
+  background-color: c.$white;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 500px;
+}
+
+.first {
+  width: 100%;
+  background-image: url('../images/image-product-mobile.jpg');
+  background-size: 100%;
+}
+
+.second {
+  width: 100%;
 }
