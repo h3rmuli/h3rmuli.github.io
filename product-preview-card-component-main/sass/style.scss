@@ -1,0 +1,6 @@
+@use './colors/colors' as c;
+@import '../../node_modules/normalize-scss/sass/normalize';
+
+body {
+  background-color: c.$veryDarkBlue;
+}
