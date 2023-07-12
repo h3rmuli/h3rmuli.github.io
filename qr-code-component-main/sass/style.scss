@@ -1,0 +1,60 @@
+@use 'colors/colors' as c;
+@import '../node_modules/normalize-scss/sass/normalize';
+
+body {
+  background-color: c.$lightGray;
+  box-sizing: border-box;
+}
+
+.outer_container {
+  width: 90%;
+  margin: 15px auto;
+  background-color: c.$white;
+  border-radius: 10px;
+}
+
+.qr_container {
+  width: 90%;
+  padding-top: 5%;
+  margin: 5% auto;
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.upper {
+  color: c.$darkBlue;
+  font-size: 1.25em;
+  font-weight: 700;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.lower {
+  font-weight: 400;
+  color: c.$grayishBlue;
+  text-align: center;
+  font-size: 0.875em;
+  padding: 0 10px 20px;
+}
+
+@media (min-width: 600px) {
+  body {
+    background-color: c.$lightGray;
+  }
+
+  .outer_container {
+    width: 20%;
+    margin: 15px auto;
+    background-color: c.$white;
+    border-radius: 10px;
+  }
+
+  .qr_container {
+    width: 88%;
+    padding-top: 5%;
+    margin: 5% auto;
+  }
+}
