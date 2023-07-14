@@ -47,7 +47,10 @@ img {
 
   .outer_container {
     width: 20%;
-    margin: 15px auto;
+    margin: auto;
+    position: absolute;
+    left: 40%;
+    top: 25%;
     background-color: c.$white;
     border-radius: 10px;
   }
