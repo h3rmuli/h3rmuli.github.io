@@ -1,4 +1,4 @@
-@import "node_modules/normalize-scss/sass/normalize/import-now";
+@import 'node_modules/normalize-scss/sass/normalize/import-now';
 
 // Primary
 $cobaltBlue: hsl(234, 85%, 45%);
@@ -21,14 +21,12 @@ $light-royal-blue: hsl(241, 81%, 54%);
 $violet-blue: hsla(256, 72%, 46%, 1);
 $persian-blue: hsla(241, 72%, 46%, 0);
 
-
-
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Hanken Grotesk", sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   font-size: 100%;
   color: $white2;
 }
@@ -38,9 +36,18 @@ p {
   font-weight: 500;
 }
 
-h1 { font-size: 2.85em; font-weight: 800;}
-h2 { font-size: 2em; font-weight: 700;}
-h3 { font-size: 1.2em; font-weight: 700;}
+h1 {
+  font-size: 2.85em;
+  font-weight: 800;
+}
+h2 {
+  font-size: 2em;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.2em;
+  font-weight: 700;
+}
 
 .padding {
   padding: 0 10% 10% 10%;
@@ -56,6 +63,10 @@ h3 { font-size: 1.2em; font-weight: 700;}
 
 .container:first-of-type {
   margin-top: -25px;
+}
+
+.shadow {
+  box-shadow: 0;
 }
 
 .results {
@@ -74,7 +85,6 @@ h3 { font-size: 1.2em; font-weight: 700;}
   border-radius: 10px;
 }
 
-
 img {
   vertical-align: middle;
   margin-right: 5px;
@@ -89,8 +99,6 @@ img {
   color: $lightDarkGreyBlue;
   float: right;
 }
-
-
 
 .reaction {
   background-color: $lightRed;
@@ -112,10 +120,8 @@ img {
   color: $cobaltBlue;
 }
 
-
 .rounded-corners {
   border-radius: 25px;
-
 }
 
 button {
@@ -128,12 +134,12 @@ button {
 }
 
 button:hover {
-  background-image: linear-gradient($light-slate-blue,$light-royal-blue);
+  background-image: linear-gradient($light-slate-blue, $light-royal-blue);
   // background-color: #55FFFF;
 }
 
 .clearfix::after {
-  content: "";
+  content: '';
   clear: both;
   display: table;
 }
@@ -147,11 +153,11 @@ button:hover {
 }
 
 .gradientbg {
-  background-image: linear-gradient($light-slate-blue,$light-royal-blue);
+  background-image: linear-gradient($light-slate-blue, $light-royal-blue);
 }
 
 .score {
-  background-image: linear-gradient($violet-blue,$persian-blue);
+  background-image: linear-gradient($violet-blue, $persian-blue);
   width: 50%;
   aspect-ratio: 1/1;
   margin: auto;
@@ -172,36 +178,111 @@ button:hover {
   top: 7%;
 }
 
-.col-s-1 {width: 8.33%; @include float}
-.col-s-2 {width: 16.66%; @include float}
-.col-s-3 {width: 25%; @include float}
-.col-s-4 {width: 33.33%; @include float}
-.col-s-5 {width: 41.66%; @include float}
-.col-s-6 {width: 50%; @include float}
-.col-s-7 {width: 58.33%; @include float}
-.col-s-8 {width: 66.66%; @include float}
-.col-s-9 {width: 75%; @include float}
-.col-s-10 {width: 83.33%; @include float}
-.col-s-11 {width: 91.66%; @include float}
-.col-s-12 {width: 100%; @include float}
+.col-s-1 {
+  width: 8.33%;
+  @include float;
+}
+.col-s-2 {
+  width: 16.66%;
+  @include float;
+}
+.col-s-3 {
+  width: 25%;
+  @include float;
+}
+.col-s-4 {
+  width: 33.33%;
+  @include float;
+}
+.col-s-5 {
+  width: 41.66%;
+  @include float;
+}
+.col-s-6 {
+  width: 50%;
+  @include float;
+}
+.col-s-7 {
+  width: 58.33%;
+  @include float;
+}
+.col-s-8 {
+  width: 66.66%;
+  @include float;
+}
+.col-s-9 {
+  width: 75%;
+  @include float;
+}
+.col-s-10 {
+  width: 83.33%;
+  @include float;
+}
+.col-s-11 {
+  width: 91.66%;
+  @include float;
+}
+.col-s-12 {
+  width: 100%;
+  @include float;
+}
 
 @media (min-width: 600px) {
+  .shadow {
+    box-shadow: 0 10px 10px 0 hsl(219, 100%, 90%);
+  }
+
   /* For desktop: */
-  .col-1 {width: 8.33%; @include float}
-  .col-2 {width: 16.66%; @include float}
-  .col-3 {width: 25%; @include float}
-  .col-4 {width: 33.33%; @include float}
-  .col-5 {width: 41.66%; @include float}
-  .col-6 {width: 50%; @include float}
-  .col-7 {width: 58.33%; @include float}
-  .col-8 {width: 66.66%; @include float}
-  .col-9 {width: 75%; @include float}
-  .col-10 {width: 83.33%; @include float}
-  .col-11 {width: 91.66%; @include float}
-  .col-12 {width: 100%; @include float}
+  .col-1 {
+    width: 8.33%;
+    @include float;
+  }
+  .col-2 {
+    width: 16.66%;
+    @include float;
+  }
+  .col-3 {
+    width: 25%;
+    @include float;
+  }
+  .col-4 {
+    width: 33.33%;
+    @include float;
+  }
+  .col-5 {
+    width: 41.66%;
+    @include float;
+  }
+  .col-6 {
+    width: 50%;
+    @include float;
+  }
+  .col-7 {
+    width: 58.33%;
+    @include float;
+  }
+  .col-8 {
+    width: 66.66%;
+    @include float;
+  }
+  .col-9 {
+    width: 75%;
+    @include float;
+  }
+  .col-10 {
+    width: 83.33%;
+    @include float;
+  }
+  .col-11 {
+    width: 91.66%;
+    @include float;
+  }
+  .col-12 {
+    width: 100%;
+    @include float;
+  }
 
   .container:first-of-type {
     margin-top: 200px;
   }
-
 }

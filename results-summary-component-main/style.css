@@ -460,6 +460,10 @@ h3 {
   margin-top: -25px;
 }
 
+.shadow {
+  box-shadow: 0;
+}
+
 .results {
   padding-top: 10%;
 }
@@ -625,6 +629,9 @@ button:hover {
 }
 
 @media (min-width: 600px) {
+  .shadow {
+    box-shadow: 0 10px 10px 0 hsl(219, 100%, 90%);
+  }
   /* For desktop: */
   .col-1 {
     width: 8.33%;
