@@ -510,7 +510,7 @@ img {
     justify-content: center;
   }
   .first {
-    width: 40%;
+    width: 20%;
     min-height: 220px;
     margin: 0;
     background-image: url("../images/image-product-desktop.jpg");
@@ -518,7 +518,7 @@ img {
     border-radius: 10px 0 0 10px;
   }
   .second {
-    width: 40%;
+    width: 20%;
     margin: 0;
     padding: 15px 25px 15px;
     background-color: white;
