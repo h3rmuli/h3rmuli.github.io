@@ -1,0 +1,23 @@
+@use '../colors/colors';
+
+h1 {
+  font-family: 'Fraunces';
+  font-weight: 700;
+  color: colors.$veryDarkBlue;
+}
+
+h2 {
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: colors.$darkGrayishBlue;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 0.875em;
+}
+
+p {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  color: colors.$darkGrayishBlue;
+  font-size: 0.875em;
+}

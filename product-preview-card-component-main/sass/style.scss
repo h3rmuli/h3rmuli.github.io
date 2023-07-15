@@ -1,22 +1,138 @@
 @use './colors/colors' as c;
+@use './fonts/fonts' as f;
 @import '../../node_modules/normalize-scss/sass/normalize/import-now';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: c.$white;
+  background-color: c.$cream;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  min-height: 500px;
 }
 
 .first {
-  width: 100%;
+  width: 90%;
+  min-height: 200px;
+  margin: 15px auto 0;
   background-image: url('../images/image-product-mobile.jpg');
-  background-size: 100%;
+  background-size: 100% auto;
+  border-radius: 10px 10px 0 0;
 }
 
 .second {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 15px 15px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+.discountedPrice {
+  color: c.$darkCyan;
+  font-size: 1.5em;
+  font-family: 'Fraunces';
+  font-weight: 700;
+}
+
+.originalPrice {
+  color: c.$darkGrayishBlue;
+  font-size: 0.875em;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  text-decoration: line-through;
+  vertical-align: 3px;
+  margin-left: 10px;
+}
+
+button {
+  display: block;
   width: 100%;
+  margin-top: 10px;
+  background-color: c.$darkCyan;
+  border: none;
+  padding: 12px;
+  color: white;
+  border-radius: 10px;
+}
+
+img {
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-color: c.$cream;
+  }
+
+  .container {
+    margin-top: 20%;
+    height: 21vw;
+    display: flex;
+    justify-content: center;
+  }
+  .first {
+    width: 40%;
+    min-height: 220px;
+    margin: 0;
+    background-image: url('../images/image-product-desktop.jpg');
+    background-size: 100% auto;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .second {
+    width: 40%;
+    margin: 0;
+    padding: 15px 25px 15px;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .second p {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .first {
+    background-position: 0 -150px;
+  }
+}
+
+@media (min-width: 2560px) {
+  body {
+    background-color: c.$cream;
+  }
+
+  .container {
+    margin-top: 20%;
+    height: 16vw;
+    display: flex;
+    justify-content: center;
+  }
+  .first {
+    width: 15%;
+    min-height: 220px;
+    margin: 0;
+    background-image: url('../images/image-product-desktop.jpg');
+    background-size: 100% auto;
+    border-radius: 10px 0 0 10px;
+  }
+
+  .second {
+    width: 15%;
+    margin: 0;
+    padding: 15px 25px 15px;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .second p {
+    margin-bottom: 40px;
+  }
 }
