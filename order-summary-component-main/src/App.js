@@ -1,12 +1,14 @@
+import Hero from './components/Hero';
+import OrderSummary from './components/OrderSummary';
+
 const App = () => {
+  console.log('Hello from komponentti');
   return (
-    <div>
-      <p>Hello world</p>
-      <p>Hello world</p>
-      <p>Hello world</p>
-      <p>Hello world</p>
-      <p>Hello world</p>
-      <p>Hello world</p>
+    <div className="bg-pale-blue">
+      <div className="p-4">
+        <Hero />
+        <OrderSummary />
+      </div>
     </div>
   );
 };

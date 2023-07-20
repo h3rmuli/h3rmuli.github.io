@@ -1,38 +1,48 @@
-const webpack = require('webpack');
 const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  mode: 'development',
+  entry: {
+    main: './src/index.js',
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true, // clean the output directory before emit
+  },
+  devServer: {
+    watchFiles: ['src/**/*'],
+  },
   module: {
     rules: [
       {
-        test: /\.js$|jsx/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.css$/,
-        include: path.resolve(__dirname, 'src'),
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
     ],
   },
-  resolve: {
-    modules: [path.resolve(__dirname, '../node_modules'), 'node_modules'],
-    extensions: ['*', '.js', '.jsx'],
-  },
-  output: {
-    path: path.resolve(__dirname, './public'),
-    filename: 'bundle.js',
-  },
-  devServer: {
-    static: path.resolve(__dirname, './public'),
-    port: 3007,
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      React: 'react',
-      ReactDOM: 'react-dom',
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './index.html',
+    }),
+    new CssMinimizerPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+      chunkFilename: 'styles.css',
     }),
   ],
 };

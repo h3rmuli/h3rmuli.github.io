@@ -1,9 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: ['./src/**/*.html', './src/**/*.{js,jsx}'],
-  content: [],
+  content: ['src/**/*.{html,js,jsx}'],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/src/images/illustration-hero.svg')",
+        'music-icon': "url('/src/images/icon-music.svg')",
+      },
+      colors: {
+        'pale-blue': 'hsl(225, 100%, 94%)',
+        'bright-blue': 'hsl(245, 75%, 52%)',
+        'very-pale-blue': 'hsl(225, 100%, 98%)',
+        'desaturated-blue': 'hsl(224, 23%, 55%)',
+        'dark-blue': 'hsl(223, 47%, 23%)',
+      },
+      fontFamily: {
+        RedHatDisplay: ['Red Hat Display', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
