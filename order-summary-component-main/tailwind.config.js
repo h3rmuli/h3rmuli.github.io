@@ -6,6 +6,8 @@ module.exports = {
       backgroundImage: {
         'hero-pattern': "url('/src/images/illustration-hero.svg')",
         'music-icon': "url('/src/images/icon-music.svg')",
+        'pattern-desktop': "url('/src/images/pattern-background-desktop.svg')",
+        'pattern-mobile': "url('/src/images/pattern-background-mobile.svg')",
       },
       colors: {
         'pale-blue': 'hsl(225, 100%, 94%)',
