@@ -41,7 +41,7 @@ const loremIpsum = [
 
 export default function Content() {
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 md:mt-32">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 md:mt-32 lg:grid-cols-3 lg:mx-28">
       <div className="-mt-3 mb-9 mx-3 p-5 bg-gradient-to-t from-cgrpink to-cgrorange text-white rounded-lg font-bold">
         <p>Check out our most popular courses!</p>
       </div>
