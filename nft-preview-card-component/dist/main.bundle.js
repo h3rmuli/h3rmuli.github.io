@@ -383,7 +383,6 @@ if (true) {
 /***/ 251:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-var __webpack_unused_export__;
 /**
  * @license React
  * react-jsx-runtime.production.min.js
@@ -394,7 +393,7 @@ var __webpack_unused_export__;
  * LICENSE file in the root directory of this source tree.
  */
 var f=__webpack_require__(294),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
-function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return{$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}exports.Fragment=l;exports.jsx=q;__webpack_unused_export__=q;
+function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return{$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}exports.Fragment=l;exports.jsx=q;exports.jsxs=q;
 
 
 /***/ }),
@@ -521,6 +520,42 @@ if (true) {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
@@ -529,18 +564,78 @@ var __webpack_exports__ = {};
 var react = __webpack_require__(294);
 // EXTERNAL MODULE: ./node_modules/react-dom/client.js
 var client = __webpack_require__(745);
+;// CONCATENATED MODULE: ./src/images/image-equilibrium.jpg
+const image_equilibrium_namespaceObject = __webpack_require__.p + "88bdbc91a544a2a4d04a.jpg";
+;// CONCATENATED MODULE: ./src/images/image-avatar.png
+const image_avatar_namespaceObject = __webpack_require__.p + "bb87beb0ff69d5e74aa8.png";
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(893);
 ;// CONCATENATED MODULE: ./src/App.js
 
 
+
+
+
 var App = function App() {
-  console.log('Hello from komponentti');
   return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
     children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
-        className: "bg-slate-200 p-5",
-        children: "Hello world"
+      className: "bg-mainBG lg:min-h-screen",
+      children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "p-5 lg:w-1/4 lg:mx-auto",
+        children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+          className: "p-5 bg-cardBG rounded-lg",
+          children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+            src: image_equilibrium_namespaceObject,
+            alt: "Picture of Equilibrium",
+            className: "rounded-lg"
+          }), /*#__PURE__*/(0,jsx_runtime.jsx)("h1", {
+            className: "text-white font-bold mt-4 font-Outfit",
+            children: "Equilibrium #3429"
+          }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+            className: "mt-4 text-soft-blue",
+            children: "Our Equilibrium collection promotes balance and calm."
+          }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+            className: "mt-4 pb-4  flex flex-row justify-between content-center border-b border-line",
+            children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("p", {
+              className: "text-Cyan",
+              children: [/*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+                className: "inline mr-1 scale-90 mb-1",
+                width: "11",
+                height: "18",
+                xmlns: "http://www.w3.org/2000/svg",
+                children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
+                  d: "M11 10.216 5.5 18 0 10.216l5.5 3.263 5.5-3.262ZM5.5 0l5.496 9.169L5.5 12.43 0 9.17 5.5 0Z",
+                  fill: "#00FFF8"
+                })
+              }), "0.041 ETH"]
+            }), /*#__PURE__*/(0,jsx_runtime.jsxs)("p", {
+              className: "text-soft-blue",
+              children: [/*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+                className: "inline mr-1 scale-90 mb-1",
+                width: "17",
+                height: "17",
+                xmlns: "http://www.w3.org/2000/svg",
+                children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
+                  d: "M8.305 2.007a6.667 6.667 0 1 0 0 13.334 6.667 6.667 0 0 0 0-13.334Zm2.667 7.334H8.305a.667.667 0 0 1-.667-.667V6.007a.667.667 0 0 1 1.334 0v2h2a.667.667 0 0 1 0 1.334Z",
+                  fill: "#8BACD9"
+                })
+              }), "3 days left"]
+            })]
+          }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+            className: "flex flex-row mt-4 overflow-hidden",
+            children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+              src: image_avatar_namespaceObject,
+              alt: "Avatar",
+              className: "scale-25 origin-top-left border-2 border-white rounded-full"
+            }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+              className: "text-soft-blue -ml-24 mt-1",
+              children: "Creation of\xA0"
+            }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+              className: "text-white mt-1",
+              children: "Jules Wyvern"
+            })]
+          })]
+        })
       })
     })
   });
