@@ -1,6 +1,6 @@
 export default function NavBar() {
   return (
-    <div className="m-3 flex flex-row justify-between">
+    <div className="m-3 md:mx-8 md:mt-6 flex flex-row justify-between">
       <svg
         className="scale-75 -ml-3"
         width="112"

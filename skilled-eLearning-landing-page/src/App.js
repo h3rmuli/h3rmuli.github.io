@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 const App = () => {
   return (
     <>
-      <div className="bg-gradient-to-b from-white to-[#F0F1FF]">
+      <div className="bg-gradient-to-b from-white to-[#F0F1FF] overflow-hidden">
         <NavBar />
         <Hero />
         <Content />

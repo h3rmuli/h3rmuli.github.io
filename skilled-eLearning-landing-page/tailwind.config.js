@@ -16,6 +16,10 @@ module.exports = {
       fontFamily: {
         Jakarta: 'Jakarta',
       },
+      scale: {
+        200: '2.00',
+        180: '1.80',
+      },
     },
   },
   plugins: [],
