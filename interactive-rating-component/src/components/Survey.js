@@ -9,7 +9,7 @@ export default function Survey() {
           />
         </svg>
       </div>
-      <h1 className="text-2xl font-semibold mt-5 text-white">How did we do?</h1>
+      <h1 className="text-2xl font-medium mt-7 text-white">How did we do?</h1>
       <p className="mt-3 text-neutral-400">
         Please let us know how we did with your support request. All feedback is
         appreciated to help us improve our offering!
@@ -31,7 +31,7 @@ export default function Survey() {
           <div className="inline">5</div>
         </div>
       </div>
-      <button className="block bg-orange-400 mt-5 py-2 w-full rounded-lg text-white">
+      <button className="block bg-orange-400 mt-5 py-2 w-full rounded-full text-white">
         Submit
       </button>
     </div>
