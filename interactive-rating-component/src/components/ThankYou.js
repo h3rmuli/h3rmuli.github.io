@@ -1,4 +1,10 @@
+import { useSelector } from 'react-redux';
+import { selectCount } from '../features/counterSlice';
+import { selectSurveyResult } from '../features/surveyResultSlice';
+
 export default function ThankYou() {
+  const count = useSelector(selectSurveyResult);
+
   return (
     <div className="bg-slate-800 m-5 p-5 rounded-lg">
       <div className="flex flex-col items-center justify-center">
@@ -92,7 +98,7 @@ export default function ThankYou() {
           </g>
         </svg>
         <p className="bg-slate-600 text-orange-400 text-sm py-1 px-3 mt-7 rounded-full">
-          You selected 1 out of 5
+          You selected {count} out of 5
         </p>
         <h1 className="text-center text-white font-medium mt-4 text-2xl">
           Thank you!

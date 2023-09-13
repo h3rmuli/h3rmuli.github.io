@@ -1,4 +1,28 @@
+import Point from './Point';
+import { useDispatch } from 'react-redux';
+import { increment } from '../features/counterSlice';
+import { setPoints } from '../features/surveyResultSlice';
+import { useState, useEffect } from 'react';
+
 export default function Survey() {
+  const dispatch = useDispatch();
+  const [selectedPoints, setSelectedPoints] = useState(0);
+
+  // useEffect(() => {
+  //   console.log(selectedPoints); // add whatever functions use new `college` value here.
+  // }, [selectedPoints]);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(setPoints(selectedPoints));
+  };
+
+  const handlePoints = (e) => {
+    e.preventDefault();
+    setSelectedPoints(e.target.dataset.testing);
+    console.log('adfsdfsdf', selectedPoints);
+  };
+
   return (
     <div className="bg-slate-800 m-5 p-5 rounded-lg">
       <div className="bg-slate-600 rounded-full flex items-center justify-center w-12 h-12">
@@ -15,23 +39,14 @@ export default function Survey() {
         appreciated to help us improve our offering!
       </p>
       <div className="flex justify-between mt-6">
-        <div className="bg-slate-500 rounded-full flex items-center justify-center w-12 h-12 text-neutral-300">
-          <div className="inline">1</div>
-        </div>
-        <div className="bg-slate-500 rounded-full p-4 flex items-center justify-center w-12 h-12 text-neutral-300">
-          <div className="inline">2</div>
-        </div>
-        <div className="bg-slate-500 rounded-full p-4 flex items-center justify-center w-12 h-12 text-neutral-300">
-          <div className="inline">3</div>
-        </div>
-        <div className="bg-slate-500 rounded-full p-4 flex items-center justify-center w-12 h-12 text-neutral-300">
-          <div className="inline">4</div>
-        </div>
-        <div className="bg-slate-500 rounded-full p-4 flex items-center justify-center w-12 h-12 text-neutral-300">
-          <div className="inline">5</div>
-        </div>
+        {[1, 2, 3, 4, 5].map((value) => (
+          <Point key={value} handler={handlePoints} value={value} />
+        ))}
       </div>
-      <button className="block bg-orange-400 mt-5 py-2 w-full rounded-full text-white">
+      <button
+        onClick={handleClick}
+        className="block bg-orange-400 mt-5 py-2 w-full rounded-full text-white"
+      >
         Submit
       </button>
     </div>
