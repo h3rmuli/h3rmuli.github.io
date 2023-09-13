@@ -8,7 +8,7 @@ const App = () => {
   const count = useSelector(selectSurveyResult);
 
   return (
-    <div>
+    <div className="sm:w-8/12 md:w-6/12 lg:w-4/12 xl:w-3/12 mx-auto">
       {count === 0 && <Survey />}
       {count !== 0 && <ThankYou />}
     </div>
