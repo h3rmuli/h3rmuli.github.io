@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import { selectCount } from '../features/counterSlice';
 import { selectSurveyResult } from '../features/surveyResultSlice';
 
 export default function ThankYou() {

@@ -1,16 +1,11 @@
 import Point from './Point';
 import { useDispatch } from 'react-redux';
-import { increment } from '../features/counterSlice';
 import { setPoints } from '../features/surveyResultSlice';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Survey() {
   const dispatch = useDispatch();
   const [selectedPoints, setSelectedPoints] = useState(0);
-
-  // useEffect(() => {
-  //   console.log(selectedPoints); // add whatever functions use new `college` value here.
-  // }, [selectedPoints]);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -20,7 +15,6 @@ export default function Survey() {
   const handlePoints = (e) => {
     e.preventDefault();
     setSelectedPoints(e.target.dataset.testing);
-    console.log('adfsdfsdf', selectedPoints);
   };
 
   return (
