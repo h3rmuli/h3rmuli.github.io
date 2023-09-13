@@ -4594,6 +4594,7 @@ function ThankYou() {
 var App = function App() {
   var count = useSelector(selectSurveyResult);
   return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+    className: "sm:w-8/12 md:w-6/12 lg:w-4/12 xl:w-3/12 mx-auto",
     children: [count === 0 && /*#__PURE__*/(0,jsx_runtime.jsx)(Survey, {}), count !== 0 && /*#__PURE__*/(0,jsx_runtime.jsx)(ThankYou, {})]
   });
 };
