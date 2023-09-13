@@ -5,7 +5,8 @@ import { useState } from 'react';
 
 export default function Survey() {
   const dispatch = useDispatch();
-  const [selectedPoints, setSelectedPoints] = useState(0);
+  const [selectedPoints, setSelectedPoints] = useState();
+  console.log('selectedPoints', selectedPoints);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -34,12 +35,17 @@ export default function Survey() {
       </p>
       <div className="flex justify-between mt-6">
         {[1, 2, 3, 4, 5].map((value) => (
-          <Point key={value} handler={handlePoints} value={value} />
+          <Point
+            key={value}
+            handler={handlePoints}
+            value={value}
+            active={selectedPoints}
+          />
         ))}
       </div>
       <button
         onClick={handleClick}
-        className="block bg-orange-400 mt-5 py-2 w-full rounded-full text-white"
+        className="block bg-orange-400 mt-5 py-2 w-full rounded-full text-white hover:bg-white hover:text-orange-400 transition duration-300 "
       >
         Submit
       </button>
