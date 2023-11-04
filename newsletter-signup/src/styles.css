@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 /* Custom css */
+
+body {
+  background-color: hsl(235, 18%, 26%);
+}

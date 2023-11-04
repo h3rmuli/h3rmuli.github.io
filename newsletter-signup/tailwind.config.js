@@ -9,6 +9,7 @@ module.exports = {
       },
       colors: {
         Tomato: 'hsl(4, 100%, 67%)',
+        charcoal: 'hsl(235, 18%, 26%)',
       },
     },
   },
