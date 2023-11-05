@@ -1,12 +1,11 @@
 import Vote from './Vote';
-import testData from '../../../data.json';
 
-export default function Post() {
-  const data = testData.comments[0];
-  console.log(data);
+export default function Post({ data, isPost }) {
+  const isPostCSS = 'relative my-5 mx-5 p-5 bg-white';
+  const isReplyCSS = 'relative mt-4 mx-5 p-5 bg-white';
 
   return (
-    <div className="relative m-5 p-5 bg-white">
+    <div className={isPost ? isPostCSS : isReplyCSS}>
       <div className="flex flex-col gap-y-2 md:flex-row md:gap-x-6">
         <div className="order-last md:order-first">
           <Vote />

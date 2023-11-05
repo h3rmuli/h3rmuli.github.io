@@ -11,6 +11,10 @@ module.exports = {
         clgblue: 'hsl(239, 57%, 85%)',
         csred: 'hsl(358, 79%, 66%)',
       },
+      flexBasis: {
+        '1/24': '0.04',
+        '23/24': '0.95',
+      },
     },
   },
   plugins: [],

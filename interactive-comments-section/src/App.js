@@ -1,10 +1,10 @@
-import Comment from './features/DisplayPost/Post';
 import SendPost from './features/SendPost/SendPost';
+import { DisplayPosts } from './features/DisplayPosts/DisplayPosts';
 
 const App = () => {
   return (
     <>
-      {/* <Comment /> */}
+      <DisplayPosts />
       <SendPost />
     </>
   );
