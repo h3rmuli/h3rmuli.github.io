@@ -12,9 +12,12 @@ export default function Post() {
           <Vote />
         </div>
         {/* <img src={pic.png} alt="User Avatar" width="16" height="16" /> */}
-        <div className="flex flex-row flex-wrap">
+        <div className="flex flex-row flex-wrap items-center">
           <div className="h-8 w-8  bg-black rounded-full"></div>
           <div className="leading-8 ml-3">{data.user.username}</div>
+          <div className="leading-6 ml-3 px-2 max-h-6 bg-cmblue text-white">
+            you
+          </div>
           <div className="leading-8 ml-3">{data.createdAt}</div>
           <div className="my-3 ">{data.content}</div>
         </div>
@@ -27,7 +30,7 @@ export default function Post() {
               fill="#ED6368"
             />
           </svg>
-          <span className="">Delete</span>
+          <span className="text-csred">Delete</span>
         </div>
         <div className="flex flex-row items-center gap-2">
           <svg width="14" height="13" xmlns="http://www.w3.org/2000/svg">
