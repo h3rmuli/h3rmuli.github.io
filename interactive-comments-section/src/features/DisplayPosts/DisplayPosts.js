@@ -1,8 +1,9 @@
 import Post from '../DisplayPost/Post';
-import data from '../../../data.json';
+// import data from '../../../data.json';
+import { useSelector } from 'react-redux';
 
 export function DisplayPosts() {
-  console.log('data', data);
+  const data = useSelector((state) => state.posts).value;
   const posts = data.comments.map((post) => (
     <>
       <Post key={post.id} data={post} isPost></Post>

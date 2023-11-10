@@ -13,7 +13,7 @@ export default function Post({ data, isPost }) {
     <div className={isPost ? isPostCSS : isReplyCSS}>
       <div className="flex flex-col gap-y-2 md:flex-row md:gap-x-6">
         <div className="order-last md:order-first">
-          <Vote score={data.score} />
+          <Vote score={data.score} postId={data.id} />
         </div>
         {/* <img src={pic.png} alt="User Avatar" width="16" height="16" /> */}
         <div className="flex flex-row flex-wrap items-center">
@@ -23,8 +23,8 @@ export default function Post({ data, isPost }) {
             you
           </div>
           <div className="leading-8 ml-3">{data.createdAt}</div>
-          <div className="my-3 ">{data.content}</div>
         </div>
+        <div className="my-3 ">{data.content}</div>
       </div>
       <div className="absolute h-10 flex flex-row gap-4 items-center bottom-6 right-5 md:top-4">
         <div
