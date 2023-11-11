@@ -2,9 +2,29 @@ import Post from '../DisplayPost/Post';
 // import data from '../../../data.json';
 import { useSelector } from 'react-redux';
 
+// for sorting purposes to create a deep copy instead of a shallow copy
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
 export function DisplayPosts() {
   const data = useSelector((state) => state.posts).value;
-  const posts = data.comments.map((post) => (
+
+  const sortedComments = deepCopy(data.comments);
+  sortedComments.sort((a, b) => b.score - a.score);
+
+  for (let i = 0; i < sortedComments.length; i++) {
+    if (
+      sortedComments[i].replies != null &&
+      sortedComments[i].replies.length > 0
+    ) {
+      sortedComments[i].replies = sortedComments[i].replies
+        .slice()
+        .sort((a, b) => b.score - a.score);
+    }
+  }
+
+  const posts = sortedComments.map((post) => (
     <>
       <Post key={post.id} data={post} isPost></Post>
       {post.replies.length > 0 && (
