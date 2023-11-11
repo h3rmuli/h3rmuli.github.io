@@ -85,9 +85,40 @@ export const commentsSlice = createSlice({
     addPost: (state, action) => {
       state.value.comments.push(action.payload);
     },
+    vote: (state, action) => {
+      const postId = action.payload.id;
+      let data = state.value.comments;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].id == postId) {
+          if (action.payload.addition) {
+            data[i].score += 1;
+          } else {
+            if (data[i].score > 0) {
+              data[i].score -= 1;
+            }
+          }
+        } else {
+          if (data[i].replies != null && data[i].replies.length > 0) {
+            for (let j = 0; j < data[i].replies.length; j++) {
+              if (data[i].replies[j].id == postId) {
+                if (action.payload.addition) {
+                  data[i].replies[j].score += 1;
+                } else {
+                  if (data[i].replies[j].score > 0) {
+                    data[i].replies[j].score -= 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // console.log('post', current(post));
+    },
   },
 });
 
-export const { save, addPost } = commentsSlice.actions;
+export const { save, addPost, vote } = commentsSlice.actions;
 
 export default commentsSlice.reducer;

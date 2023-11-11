@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-// import { vote } from '../commentsSlice';
+import { vote } from '../commentsSlice';
 
 export default function Vote({ postId, score }) {
   const data = useSelector((state) => state.posts).value;
@@ -10,7 +10,7 @@ export default function Vote({ postId, score }) {
     <>
       <div className="flex flex-row md:flex-col items-center">
         <div
-          onClick={() => dispatch(vote({ id: postId }))}
+          onClick={() => dispatch(vote({ id: postId, addition: true }))}
           className="group bg-cgrey h-11 w-10 px-3 md:px-[14px] py-4 rounded-l-lg md:rounded-t-lg md:rounded-bl-none  cursor-pointer"
         >
           <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +25,10 @@ export default function Vote({ postId, score }) {
         <div className="bg-cgrey  w-10 h-11 py-2.5 text-cmblue font-bold text-center cursor-not-allowed">
           {score}
         </div>
-        <div className="group bg-cgrey h-11 w-10 px-3 md:px-[15px] py-5 rounded-r-lg md:rounded-b-lg md:rounded-tr-none cursor-pointer">
+        <div
+          className="group bg-cgrey h-11 w-10 px-3 md:px-[15px] py-5 rounded-r-lg md:rounded-b-lg md:rounded-tr-none cursor-pointer"
+          onClick={() => dispatch(vote({ id: postId, addition: false }))}
+        >
           <svg width="11" height="3" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M9.256 2.66c.204 0 .38-.056.53-.167.148-.11.222-.243.222-.396V.722c0-.152-.074-.284-.223-.395a.859.859 0 0 0-.53-.167H.76a.859.859 0 0 0-.53.167C.083.437.009.57.009.722v1.375c0 .153.074.285.223.396a.859.859 0 0 0 .53.167h8.495Z"
