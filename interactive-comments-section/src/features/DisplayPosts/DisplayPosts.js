@@ -1,5 +1,4 @@
 import Post from '../DisplayPost/Post';
-// import data from '../../../data.json';
 import { useSelector } from 'react-redux';
 
 // for sorting purposes to create a deep copy instead of a shallow copy
@@ -9,6 +8,7 @@ function deepCopy(obj) {
 
 export function DisplayPosts() {
   const data = useSelector((state) => state.posts).value;
+  const currentUser = data.currentUser.username;
 
   const sortedComments = deepCopy(data.comments);
   sortedComments.sort((a, b) => b.score - a.score);
@@ -24,22 +24,37 @@ export function DisplayPosts() {
     }
   }
 
-  const posts = sortedComments.map((post) => (
-    <>
-      <Post key={post.id} data={post} isPost></Post>
-      {post.replies.length > 0 && (
-        <div>
-          {post.replies.map((reply) => (
-            <>
-              <div className="ml-5 md:ml-[3.6rem] pl-0 py-1 first:pt-0 last:pb-0 md:pl-14 border-l border-l-slate-300">
-                <Post key={reply.id} data={reply}></Post>
+  return (
+    <div>
+      <ul>
+        {sortedComments.map((post) => (
+          <li key={post.id}>
+            <Post
+              key={post.id}
+              data={post}
+              isPost
+              currentUser={currentUser}
+            ></Post>
+            {post.replies?.length && post.replies.length > 0 && (
+              <div>
+                <ul>
+                  {post.replies.map((reply) => (
+                    <li key={reply.id}>
+                      <div className="ml-5 md:ml-[3.6rem] pl-0 py-1 first:pt-0 last:pb-0 md:pl-14 border-l border-l-slate-300">
+                        <Post
+                          key={reply.id}
+                          data={reply}
+                          currentUser={currentUser}
+                        ></Post>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </>
-          ))}
-        </div>
-      )}
-    </>
-  ));
-
-  return <>{posts}</>;
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

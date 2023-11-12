@@ -83,7 +83,16 @@ export const commentsSlice = createSlice({
       state = action.payload;
     },
     addPost: (state, action) => {
-      state.value.comments.push(action.payload);
+      let posts = state.value.comments;
+      if (action.payload[1]?.isReply === true) {
+        for (let i = 0; i < posts.length; i++) {
+          if (posts[i].id == action.payload[1]?.postId) {
+            posts[i].replies.push(action.payload[0]);
+          }
+        }
+      } else {
+        state.value.comments.push(action.payload);
+      }
     },
     vote: (state, action) => {
       const postId = action.payload.id;
@@ -113,8 +122,6 @@ export const commentsSlice = createSlice({
           }
         }
       }
-
-      // console.log('post', current(post));
     },
   },
 });

@@ -1,34 +1,68 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
 import { addPost } from '../commentsSlice';
-import { useState } from 'react';
+import { useState, useImperativeHandle, forwardRef } from 'react';
 import { UseSelector } from 'react-redux';
 
-export default function SendPost() {
+const SendPost = forwardRef(({ isReply, data, onClose }, ref) => {
   const [postContent, setPostContent] = useState('');
   const currentUser = useSelector((state) => state.posts).value.currentUser;
   const dispatch = useDispatch();
 
   const onContentChange = (e) => setPostContent(e.target.value);
 
+  useImperativeHandle(ref, () => ({
+    callParentFunction: onClose,
+  }));
+
+  const handleClose = () => {
+    onClose();
+  };
+
   const addPostHandler = () => {
-    dispatch(
-      addPost({
-        id: nanoid(),
-        content: postContent,
-        createdAt: '2 months ago',
-        score: 0,
-        user: {
-          username: currentUser.username,
-          image: {
-            png: currentUser.image.png,
-            webp: currentUser.image.webp,
+    if (isReply) {
+      dispatch(
+        addPost([
+          {
+            id: nanoid(),
+            content: postContent,
+            createdAt: '2 months ago',
+            score: 0,
+            replyingTo: data.user.username,
+            user: {
+              username: currentUser.username,
+              image: {
+                png: currentUser.image.png,
+                webp: currentUser.image.webp,
+              },
+            },
           },
-        },
-        replies: [],
-      })
-    );
-    setPostContent('');
+          { isReply: true, postId: data.id },
+        ])
+      );
+      handleClose();
+
+      setPostContent('');
+    } else {
+      dispatch(
+        addPost({
+          id: nanoid(),
+          content: postContent,
+          createdAt: '2 months ago',
+          score: 0,
+          user: {
+            username: currentUser.username,
+            image: {
+              png: currentUser.image.png,
+              webp: currentUser.image.webp,
+            },
+          },
+          replies: [],
+        })
+      );
+      setPostContent('');
+      // handleClose();
+    }
   };
 
   return (
@@ -55,4 +89,6 @@ export default function SendPost() {
       </div>
     </>
   );
-}
+});
+
+export default SendPost;
