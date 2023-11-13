@@ -1,4 +1,13 @@
-export default function Modal({ onClose }) {
+import { deletePost } from '../commentsSlice';
+import { useDispatch } from 'react-redux';
+
+export default function Modal({ onClose, postId }) {
+  const dispatch = useDispatch();
+
+  const deleteHandler = () => {
+    dispatch(deletePost(postId));
+  };
+
   return (
     <>
       <div className="grid place-items-center h-screen w-screen bg-slate-300/50 fixed top-0">
@@ -17,7 +26,7 @@ export default function Modal({ onClose }) {
             </div>
             <div
               className="px-4 py-2 rounded-lg bg-csred text-white uppercase cursor-pointer"
-              onClick={onClose}
+              onClick={deleteHandler}
             >
               Yes, delete
             </div>

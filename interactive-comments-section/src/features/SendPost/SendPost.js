@@ -61,7 +61,6 @@ const SendPost = forwardRef(({ isReply, data, onClose }, ref) => {
         })
       );
       setPostContent('');
-      // handleClose();
     }
   };
 

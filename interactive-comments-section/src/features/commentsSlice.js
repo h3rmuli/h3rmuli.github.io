@@ -123,9 +123,30 @@ export const commentsSlice = createSlice({
         }
       }
     },
+    deletePost: (state, action) => {
+      const postId = action.payload;
+      let data = state.value.comments;
+      const filteredComments = data.filter((comment) => comment.id != postId);
+
+      // if filtering didn't find any match, the array has the same length as the original, then check each comments replies
+      if (data.length === filteredComments.length) {
+        for (let i = 0; i < data.length; i++) {
+          if (data[i]?.replies && data[i].replies.length !== 0) {
+            const filteredReplies = data[i].replies.filter(
+              (reply) => reply.id != postId
+            );
+            if (data[i].length !== filteredReplies.length) {
+              data[i].replies = filteredReplies;
+            }
+          }
+        }
+      } else {
+        state.value.comments = filteredComments;
+      }
+    },
   },
 });
 
-export const { save, addPost, vote } = commentsSlice.actions;
+export const { save, addPost, vote, deletePost } = commentsSlice.actions;
 
 export default commentsSlice.reducer;

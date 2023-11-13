@@ -5,8 +5,8 @@ import Modal from '../Modal/Modal';
 import SendPost from '../SendPost/SendPost';
 
 const Post = ({ data, isPost, currentUser }) => {
-  const [showModal, setShowModal] = useState();
-  const [showReply, setShowReply] = useState();
+  const [showModal, setShowModal] = useState(false);
+  const [showReply, setShowReply] = useState(false);
 
   const childRef = useRef(null);
 
@@ -19,12 +19,6 @@ const Post = ({ data, isPost, currentUser }) => {
   const toggleShowReply = () => {
     setShowReply(!showReply);
   };
-
-  // useImperativeHandle(ref, () => {
-  //   return {
-  //     toggleShowReply,
-  //   };
-  // });
 
   return (
     <>
@@ -66,7 +60,7 @@ const Post = ({ data, isPost, currentUser }) => {
           )}
           {showModal &&
             createPortal(
-              <Modal onClose={() => setShowModal(false)} />,
+              <Modal postId={data.id} onClose={() => setShowModal(false)} />,
               document.body
             )}
           {isPost && !showReply && (
