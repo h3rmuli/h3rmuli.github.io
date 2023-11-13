@@ -66,7 +66,7 @@ const SendPost = forwardRef(({ isReply, data, onClose }, ref) => {
 
   return (
     <>
-      <div className="m-5 p-5 bg-white  flex-row flex flex-wrap gap-x-5 justify-between items-center md:items-start">
+      <div className="m-5 p-5 bg-white  flex-row flex flex-wrap gap-x-5 justify-between items-center md:items-start rounded-xl">
         <div className="mt-4 md:mt-0 h-8 w-8  bg-black rounded-full"></div>
         <div className="-order-1 basis-full md:order-none md:basis-auto md:grow">
           <textarea

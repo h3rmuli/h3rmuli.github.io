@@ -13,8 +13,8 @@ const Post = ({ data, isPost, currentUser }) => {
   const owner = currentUser === data.user.username ? true : false;
   const portalContainer = document.getElementById(`reply-id-${data.id}`);
 
-  const isPostCSS = 'relative my-5 mx-5 p-5 bg-white';
-  const isReplyCSS = 'relative mt-4 mx-5 p-5 bg-white';
+  const isPostCSS = 'relative my-5 mx-5 p-5 bg-white rounded-xl';
+  const isReplyCSS = 'relative mt-4 mx-5 p-5 bg-white rounded-xl';
 
   const toggleShowReply = () => {
     setShowReply(!showReply);
@@ -80,14 +80,16 @@ const Post = ({ data, isPost, currentUser }) => {
           )}
         </div>
       </div>
-      <div className="mt-5" id={`reply-id-${data.id}`}></div>
       {showReply && (
-        <SendPost
-          ref={childRef}
-          isReply
-          data={data}
-          onClose={toggleShowReply}
-        />
+        <>
+          <div className="mt-5" id={`reply-id-${data.id}`}></div>
+          <SendPost
+            ref={childRef}
+            isReply
+            data={data}
+            onClose={toggleShowReply}
+          />
+        </>
       )}
     </>
   );

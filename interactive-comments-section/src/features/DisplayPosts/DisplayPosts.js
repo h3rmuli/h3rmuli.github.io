@@ -39,8 +39,11 @@ export function DisplayPosts() {
               <div>
                 <ul>
                   {post.replies.map((reply) => (
-                    <li key={reply.id}>
-                      <div className="ml-5 md:ml-[3.6rem] pl-0 py-1 first:pt-0 last:pb-0 md:pl-14 border-l border-l-slate-300">
+                    <li
+                      className="ml-5 md:ml-[3.6rem] pl-0 py-1 first:pt-0 last:pb-0 md:pl-14 border-l border-l-slate-300"
+                      key={reply.id}
+                    >
+                      <div>
                         <Post
                           key={reply.id}
                           data={reply}
