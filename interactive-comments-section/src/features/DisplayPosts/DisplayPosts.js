@@ -35,7 +35,7 @@ export function DisplayPosts() {
               isPost
               currentUser={currentUser}
             ></Post>
-            {post.replies?.length && post.replies.length > 0 && (
+            {post.replies.length > 0 && (
               <div>
                 <ul>
                   {post.replies.map((reply) => (
