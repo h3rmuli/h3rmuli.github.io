@@ -23,13 +23,13 @@ const Post = ({ data, isPost, currentUser }) => {
   return (
     <>
       <div className={isPost ? isPostCSS : isReplyCSS}>
-        <div className="flex flex-col gap-y-2 md:flex-row md:gap-x-6">
+        <div className="flex flex-col gap-y-2 md:grid md:grid-cols-12 md:grid-rows-2 md:gap-x-6 md:content-start">
           {/* {  VOTE} */}
-          <div className="order-last md:order-first">
+          <div className="order-last md:order-first md:row-span-2 md:col-span-1">
             <Vote score={data.score} postId={data.id} />
           </div>
           {/* { USER } */}
-          <div className="flex flex-row flex-wrap items-center">
+          <div className="flex flex-row flex-wrap items-center md:items-start md:col-span-11">
             {/* <img src={pic.png} alt="User Avatar" width="16" height="16" /> */}
             <div className="h-8 w-8  bg-black rounded-full"></div>
             <div className="leading-8 ml-3">{data.user.username}</div>
@@ -41,7 +41,9 @@ const Post = ({ data, isPost, currentUser }) => {
             <div className="leading-8 ml-3">{data.createdAt}</div>
           </div>
           {/* { CONTENT } */}
-          <div className="my-3 ">{data.content}</div>
+          <div className="my-3 md:col-span-10 md:items-start md:-mt-6">
+            {data.content}
+          </div>
         </div>
         <div className="absolute h-10 flex flex-row gap-4 items-center bottom-6 right-5 md:top-4">
           {owner && (
