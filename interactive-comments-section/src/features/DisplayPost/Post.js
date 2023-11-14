@@ -33,6 +33,7 @@ const Post = ({ data, isPost, currentUser }) => {
     dispatch(update({ postId: data.id, content: editedPost }));
     setShowEdit(!showEdit);
   };
+  console.log(data);
 
   return (
     <>
@@ -44,8 +45,13 @@ const Post = ({ data, isPost, currentUser }) => {
           </div>
           {/* { USER } */}
           <div className="flex flex-row flex-wrap items-center md:items-start md:col-span-11">
-            {/* <img src={pic.png} alt="User Avatar" width="16" height="16" /> */}
-            <div className="h-8 w-8  bg-black rounded-full"></div>
+            <img
+              src={data.user.image.png}
+              alt="User Avatar"
+              width="16"
+              height="16"
+            />
+            {/* <div className="h-8 w-8  bg-black rounded-full"></div> */}
             <div className="leading-8 ml-3">{data.user.username}</div>
             {owner && (
               <div className="leading-6 ml-3 px-2 max-h-6 bg-cmblue text-white">

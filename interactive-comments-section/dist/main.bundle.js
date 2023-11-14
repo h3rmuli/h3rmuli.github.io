@@ -4876,6 +4876,7 @@ var Post = function Post(_ref) {
     }));
     setShowEdit(!showEdit);
   };
+  console.log(data);
   return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
     children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
       className: isPost ? isPostCSS : isReplyCSS,
@@ -4889,8 +4890,11 @@ var Post = function Post(_ref) {
           })
         }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
           className: "flex flex-row flex-wrap items-center md:items-start md:col-span-11",
-          children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-            className: "h-8 w-8  bg-black rounded-full"
+          children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+            src: data.user.image.png,
+            alt: "User Avatar",
+            width: "16",
+            height: "16"
           }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
             className: "leading-8 ml-3",
             children: data.user.username
