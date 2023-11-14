@@ -123,6 +123,23 @@ export const commentsSlice = createSlice({
         }
       }
     },
+    update: (state, action) => {
+      const postId = action.payload.postId;
+      let data = state.value.comments;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].id == postId) {
+          data[i].content = action.payload.content;
+        } else {
+          if (data[i].replies != null && data[i].replies.length > 0) {
+            for (let j = 0; j < data[i].replies.length; j++) {
+              if (data[i].replies[j].id == postId) {
+                data[i].replies[j].content = action.payload.content;
+              }
+            }
+          }
+        }
+      }
+    },
     deletePost: (state, action) => {
       const postId = action.payload;
       let data = state.value.comments;
@@ -147,6 +164,7 @@ export const commentsSlice = createSlice({
   },
 });
 
-export const { save, addPost, vote, deletePost } = commentsSlice.actions;
+export const { save, addPost, vote, update, deletePost } =
+  commentsSlice.actions;
 
 export default commentsSlice.reducer;

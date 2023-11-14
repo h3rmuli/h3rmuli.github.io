@@ -3,12 +3,17 @@ import { useState, useRef } from 'react';
 import Vote from './Vote';
 import Modal from '../Modal/Modal';
 import SendPost from '../SendPost/SendPost';
+import { useDispatch } from 'react-redux';
+import { update } from '../commentsSlice';
 
 const Post = ({ data, isPost, currentUser }) => {
   const [showModal, setShowModal] = useState(false);
   const [showReply, setShowReply] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+  const [editedPost, setEditedPost] = useState(data.content);
 
   const childRef = useRef(null);
+  const dispatch = useDispatch();
 
   const owner = currentUser === data.user.username ? true : false;
   const portalContainer = document.getElementById(`reply-id-${data.id}`);
@@ -18,6 +23,15 @@ const Post = ({ data, isPost, currentUser }) => {
 
   const toggleShowReply = () => {
     setShowReply(!showReply);
+  };
+
+  const toggleShowEdit = () => {
+    setShowEdit(!showEdit);
+  };
+
+  const editHandler = () => {
+    dispatch(update({ postId: data.id, content: editedPost }));
+    setShowEdit(!showEdit);
   };
 
   return (
@@ -41,9 +55,30 @@ const Post = ({ data, isPost, currentUser }) => {
             <div className="leading-8 ml-3">{data.createdAt}</div>
           </div>
           {/* { CONTENT } */}
-          <div className="my-3 md:col-span-10 md:items-start md:-mt-6">
-            {data.content}
-          </div>
+          {!showEdit && (
+            <div className="my-3 md:col-span-10 md:items-start md:-mt-6">
+              {data.content}
+            </div>
+          )}
+          {showEdit && (
+            <div className="my-3 md:col-span-10 md:items-start md:-mt-14">
+              <textarea
+                placeholder="Edit the comment..."
+                rows="3"
+                id="postContent"
+                name="postContent"
+                value={editedPost}
+                onChange={(e) => setEditedPost(e.target.value)}
+                className="w-full resize-none rounded-md px-4 py-2 ring-1 ring-gray-300 focus:ring-2 focus:ring-csred"
+              />
+              <div
+                onClick={() => editHandler()}
+                className="mt-4 md:mt-2 py-3 px-6 rounded-md bg-cmblue hover:bg-clgblue text-white float-right"
+              >
+                UPDATE
+              </div>
+            </div>
+          )}
         </div>
         <div className="absolute h-10 flex flex-row gap-4 items-center bottom-6 right-5 md:top-4">
           {owner && (
@@ -65,7 +100,7 @@ const Post = ({ data, isPost, currentUser }) => {
               </div>
               <div
                 className="group flex flex-row items-center gap-2 cursor-pointer"
-                onClick={() => setShowReply(true)}
+                onClick={() => toggleShowEdit()}
               >
                 <svg width="14" height="13" xmlns="http://www.w3.org/2000/svg">
                   <path
