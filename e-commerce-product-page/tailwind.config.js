@@ -4,16 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        cgrey: 'hsl(228, 33%, 97%)',
-        clgrey: 'hsl(211, 10%, 45%)',
-        cmblue: 'hsl(238, 40%, 52%)',
-        cdblue: 'hsl(212, 24%, 26%)',
-        clgblue: 'hsl(239, 57%, 85%)',
-        csred: 'hsl(358, 79%, 66%)',
+        ora: 'hsl(26, 100%, 55%)',
+        paleora: 'hsl(25, 100%, 94%)',
       },
-      flexBasis: {
-        '1/24': '0.04',
-        '23/24': '0.95',
+      fontFamily: {
+        'Kumbh-Sans': ['Kumbh Sans', 'sans-serif'],
       },
     },
   },
