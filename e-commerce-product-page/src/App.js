@@ -1,7 +1,7 @@
-import Navigation from './components/Navigation';
+import NavigationBar from './components/NavigationBar';
 
 const App = () => {
-  return <Navigation />;
+  return <NavigationBar />;
 };
 
 export default App;

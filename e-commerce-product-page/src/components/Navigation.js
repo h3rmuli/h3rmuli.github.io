@@ -23,7 +23,7 @@ export default function Navigation() {
         {entries.map(([entry, id]) => (
           <div
             key={id}
-            className="py-8 hover:border-b-4 hover:border-b-ora cursor-pointer"
+            className="py-8 hover:pb-[4px] hover:border-b-4 hover:border-b-ora cursor-pointer"
           >
             {entry}
           </div>
