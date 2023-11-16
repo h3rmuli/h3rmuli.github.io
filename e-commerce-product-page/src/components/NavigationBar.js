@@ -1,4 +1,5 @@
 import Navigation from './Navigation';
+import profilePic from '../images/image-avatar.png';
 
 export default function NavigationBar() {
   return (
@@ -16,7 +17,9 @@ export default function NavigationBar() {
             />
           </svg>
         </div>
-        <div className="py-8 flex-none">profile</div>
+        <div className="py-6 flex-none">
+          <img className="h-10" src={profilePic} />
+        </div>
       </div>
     </>
   );
