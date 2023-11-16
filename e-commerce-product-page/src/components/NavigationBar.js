@@ -3,7 +3,7 @@ import Navigation from './Navigation';
 export default function NavigationBar() {
   return (
     <>
-      <div className="flex flex-row border-b-2">
+      <div className="flex flex-row border-b-0 md:border-b-2 mx-5 md:mx-0">
         <div className="grow">
           <Navigation />
         </div>
