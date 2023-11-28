@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 101:
+/***/ 448:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 /**
@@ -374,7 +374,7 @@ if (true) {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(101);
+  module.exports = __webpack_require__(448);
 } else {}
 
 
@@ -696,13 +696,130 @@ function getObj(query) {
 }
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(893);
-;// CONCATENATED MODULE: ./src/components/DesktopNavigation.js
+;// CONCATENATED MODULE: ./src/components/DesktopLightbox.js
+
+
+function DesktopLightbox() {
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
+    children: /*#__PURE__*/(0,jsx_runtime.jsx)("h1", {
+      children: "this is desktop"
+    })
+  });
+}
+;// CONCATENATED MODULE: ./src/components/MobileLightbox.js
+
+
+
+function MobileLightbox(_ref) {
+  var pic = _ref.pic,
+    previous = _ref.previous,
+    next = _ref.next;
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
+    children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      className: "relative",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+        src: pic
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "absolute top-1/2 left-5 bg-white text-black rounded-full w-10 h-10 font-bold text-center leading-10",
+        onClick: previous,
+        children: "<"
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "absolute top-1/2 right-5 bg-white text-black rounded-full w-10 h-10 font-bold text-center leading-10",
+        onClick: next,
+        children: ">"
+      })]
+    })
+  });
+}
+;// CONCATENATED MODULE: ./src/images/image-product-1-thumbnail.jpg
+const image_product_1_thumbnail_namespaceObject = __webpack_require__.p + "41da6fdd0ac384f6e068.jpg";
+;// CONCATENATED MODULE: ./src/images/image-product-2-thumbnail.jpg
+const image_product_2_thumbnail_namespaceObject = __webpack_require__.p + "cf503aaea954964f5273.jpg";
+;// CONCATENATED MODULE: ./src/images/image-product-3-thumbnail.jpg
+const image_product_3_thumbnail_namespaceObject = __webpack_require__.p + "b7a62a37890871a8ff78.jpg";
+;// CONCATENATED MODULE: ./src/images/image-product-4-thumbnail.jpg
+const image_product_4_thumbnail_namespaceObject = __webpack_require__.p + "9f21a1e6071bec55863b.jpg";
+;// CONCATENATED MODULE: ./src/images/image-product-1.jpg
+const image_product_1_namespaceObject = __webpack_require__.p + "520cc50bd13955f55cb2.jpg";
+;// CONCATENATED MODULE: ./src/images/image-product-2.jpg
+const image_product_2_namespaceObject = __webpack_require__.p + "c8bb0aaccecdebb16596.jpg";
+;// CONCATENATED MODULE: ./src/images/image-product-3.jpg
+const image_product_3_namespaceObject = __webpack_require__.p + "af5c71ba9ffcc0b8b54d.jpg";
+;// CONCATENATED MODULE: ./src/images/image-product-4.jpg
+const image_product_4_namespaceObject = __webpack_require__.p + "9962862ef3eff6d65e5b.jpg";
+;// CONCATENATED MODULE: ./src/components/Lightbox.js
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Lightbox() {
+  var pics = [[image_product_1_namespaceObject, image_product_1_thumbnail_namespaceObject], [image_product_2_namespaceObject, image_product_2_thumbnail_namespaceObject], [image_product_3_namespaceObject, image_product_3_thumbnail_namespaceObject], [image_product_4_namespaceObject, image_product_4_thumbnail_namespaceObject]];
+  var _useState = (0,react.useState)(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    picIndex = _useState2[0],
+    setPicIndex = _useState2[1];
+  var _useState3 = (0,react.useState)(pics[picIndex]),
+    _useState4 = _slicedToArray(_useState3, 2),
+    currentPic = _useState4[0],
+    setCurrentPic = _useState4[1];
+  var pictureHandler = function pictureHandler(value) {
+    switch (value) {
+      case 'previous':
+        if (picIndex > 0) {
+          var temp = picIndex - 1;
+          setPicIndex(temp);
+          setCurrentPic(pics[temp]);
+        }
+        break;
+      case 'next':
+        if (picIndex < pics.length - 1) {
+          var _temp = picIndex + 1;
+          setPicIndex(_temp);
+          setCurrentPic(pics[_temp]);
+        }
+        break;
+      default:
+        setPicIndex(0);
+        setCurrentPic(pics[picIndex]);
+    }
+  };
+  var laptop = useMediaQuery('only screen and (min-width: 768px)');
+  if (laptop) {
+    return /*#__PURE__*/(0,jsx_runtime.jsx)(DesktopLightbox, {});
+  } else {
+    return /*#__PURE__*/(0,jsx_runtime.jsx)(MobileLightbox, {
+      pic: currentPic[0],
+      previous: function previous() {
+        return pictureHandler('previous');
+      },
+      next: function next() {
+        return pictureHandler('next');
+      }
+    });
+  }
+}
+;// CONCATENATED MODULE: ./src/components/DesktopNavigation.js
+function DesktopNavigation_slicedToArray(arr, i) { return DesktopNavigation_arrayWithHoles(arr) || DesktopNavigation_iterableToArrayLimit(arr, i) || DesktopNavigation_unsupportedIterableToArray(arr, i) || DesktopNavigation_nonIterableRest(); }
+function DesktopNavigation_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function DesktopNavigation_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return DesktopNavigation_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return DesktopNavigation_arrayLikeToArray(o, minLen); }
+function DesktopNavigation_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function DesktopNavigation_iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function DesktopNavigation_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -725,7 +842,7 @@ function DesktopNavigation(_ref) {
           })
         })
       }), entries.map(function (_ref2) {
-        var _ref3 = _slicedToArray(_ref2, 2),
+        var _ref3 = DesktopNavigation_slicedToArray(_ref2, 2),
           entry = _ref3[0],
           id = _ref3[1];
         return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
@@ -897,8 +1014,13 @@ function NavigationBar() {
 ;// CONCATENATED MODULE: ./src/App.js
 
 
+
+
+
 var App = function App() {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(NavigationBar, {});
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(NavigationBar, {}), /*#__PURE__*/(0,jsx_runtime.jsx)(Lightbox, {})]
+  });
 };
 /* harmony default export */ const src_App = (App);
 ;// CONCATENATED MODULE: ./src/index.js
