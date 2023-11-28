@@ -1,5 +1,6 @@
 import Lightbox from './components/Lightbox';
 import NavigationBar from './components/NavigationBar';
+import ProductDescription from './components/ProductDescription';
 
 const App = () => {
   return (
@@ -9,7 +10,9 @@ const App = () => {
         <div className="w-full sm:w-1/3">
           <Lightbox />
         </div>
-        <div className="w-1/3">another div</div>
+        <div className="w-full sm:w-1/3 px-5 sm:px-0">
+          <ProductDescription />
+        </div>
       </div>
     </>
   );
