@@ -697,13 +697,45 @@ function getObj(query) {
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
 var jsx_runtime = __webpack_require__(893);
 ;// CONCATENATED MODULE: ./src/components/DesktopLightbox.js
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
-function DesktopLightbox() {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-    children: /*#__PURE__*/(0,jsx_runtime.jsx)("h1", {
-      children: "this is desktop"
-    })
+
+
+function DesktopLightbox(_ref) {
+  var pics = _ref.pics;
+  var _useState = (0,react.useState)(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    picIndex = _useState2[0],
+    setPicIndex = _useState2[1];
+  var active = 'rounded-lg ring-2 ring-ora';
+  var inactive = 'rounded-lg';
+  var activePic = 'rounded-lg opacity-50';
+  var inactivePic = 'rounded-lg';
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+      className: "rounded-lg",
+      src: pics[picIndex][0]
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      className: "grid grid-cols-4 gap-4 mt-6",
+      children: pics.map(function (pic, index) {
+        return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+          className: picIndex === index ? active : inactive,
+          onClick: function onClick() {
+            return setPicIndex(index);
+          },
+          children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+            className: picIndex === index ? activePic : inactivePic,
+            src: pic[1]
+          })
+        });
+      })
+    })]
   });
 }
 ;// CONCATENATED MODULE: ./src/components/MobileLightbox.js
@@ -748,12 +780,12 @@ const image_product_3_namespaceObject = __webpack_require__.p + "af5c71ba9ffcc0b
 ;// CONCATENATED MODULE: ./src/images/image-product-4.jpg
 const image_product_4_namespaceObject = __webpack_require__.p + "9962862ef3eff6d65e5b.jpg";
 ;// CONCATENATED MODULE: ./src/components/Lightbox.js
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function Lightbox_slicedToArray(arr, i) { return Lightbox_arrayWithHoles(arr) || Lightbox_iterableToArrayLimit(arr, i) || Lightbox_unsupportedIterableToArray(arr, i) || Lightbox_nonIterableRest(); }
+function Lightbox_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function Lightbox_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return Lightbox_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return Lightbox_arrayLikeToArray(o, minLen); }
+function Lightbox_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function Lightbox_iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function Lightbox_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -770,14 +802,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Lightbox() {
   var pics = [[image_product_1_namespaceObject, image_product_1_thumbnail_namespaceObject], [image_product_2_namespaceObject, image_product_2_thumbnail_namespaceObject], [image_product_3_namespaceObject, image_product_3_thumbnail_namespaceObject], [image_product_4_namespaceObject, image_product_4_thumbnail_namespaceObject]];
   var _useState = (0,react.useState)(0),
-    _useState2 = _slicedToArray(_useState, 2),
+    _useState2 = Lightbox_slicedToArray(_useState, 2),
     picIndex = _useState2[0],
     setPicIndex = _useState2[1];
   var _useState3 = (0,react.useState)(pics[picIndex]),
-    _useState4 = _slicedToArray(_useState3, 2),
+    _useState4 = Lightbox_slicedToArray(_useState3, 2),
     currentPic = _useState4[0],
     setCurrentPic = _useState4[1];
-  var pictureHandler = function pictureHandler(value) {
+  var mobilePictureHandler = function mobilePictureHandler(value) {
     switch (value) {
       case 'previous':
         if (picIndex > 0) {
@@ -798,17 +830,19 @@ function Lightbox() {
         setCurrentPic(pics[picIndex]);
     }
   };
-  var laptop = useMediaQuery('only screen and (min-width: 768px)');
+  var laptop = useMediaQuery('only screen and (min-width: 640px)');
   if (laptop) {
-    return /*#__PURE__*/(0,jsx_runtime.jsx)(DesktopLightbox, {});
+    return /*#__PURE__*/(0,jsx_runtime.jsx)(DesktopLightbox, {
+      pics: pics
+    });
   } else {
     return /*#__PURE__*/(0,jsx_runtime.jsx)(MobileLightbox, {
       pic: currentPic[0],
       previous: function previous() {
-        return pictureHandler('previous');
+        return mobilePictureHandler('previous');
       },
       next: function next() {
-        return pictureHandler('next');
+        return mobilePictureHandler('next');
       }
     });
   }
@@ -1011,7 +1045,40 @@ function NavigationBar() {
     })
   });
 }
+;// CONCATENATED MODULE: ./src/components/ProductDescription.js
+
+
+
+function ProductDescription() {
+  return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("h2", {
+      className: "mt-10 text-ora uppercase font-bold font-Kumbh-Sans",
+      children: "Sneaker Company"
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)("h1", {
+      className: "mt-3 text-3xl font-bold font-Kumbh-Sans",
+      children: "Fall Limited Edition Sneakers"
+    }), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+      className: "mt-5 text-slate-500 font-Kumbh-Sans",
+      children: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer."
+    }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      className: "flex flex-wrap mt-5",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "text-3xl font-bold",
+        children: "$125.00"
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "ml-5 px-2 bg-paleora rounded-lg text-ora font-bold leading-9",
+        children: "50%"
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "grow"
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "sm:w-full text-slate-500 leading-9 line-through",
+        children: "$250.00"
+      })]
+    })]
+  });
+}
 ;// CONCATENATED MODULE: ./src/App.js
+
 
 
 
@@ -1019,7 +1086,16 @@ function NavigationBar() {
 
 var App = function App() {
   return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(NavigationBar, {}), /*#__PURE__*/(0,jsx_runtime.jsx)(Lightbox, {})]
+    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(NavigationBar, {}), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      className: "flex gap-x-10 justify-center my-16 flex-wrap",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "w-full sm:w-1/3",
+        children: /*#__PURE__*/(0,jsx_runtime.jsx)(Lightbox, {})
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "w-full sm:w-1/3 px-5 sm:px-0",
+        children: /*#__PURE__*/(0,jsx_runtime.jsx)(ProductDescription, {})
+      })]
+    })]
   });
 };
 /* harmony default export */ const src_App = (App);
