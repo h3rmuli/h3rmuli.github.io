@@ -5,7 +5,12 @@ const App = () => {
   return (
     <>
       <NavigationBar />
-      <Lightbox />
+      <div className="flex gap-x-10 justify-center my-16 flex-wrap">
+        <div className="w-full sm:w-1/3">
+          <Lightbox />
+        </div>
+        <div className="w-1/3">another div</div>
+      </div>
     </>
   );
 };

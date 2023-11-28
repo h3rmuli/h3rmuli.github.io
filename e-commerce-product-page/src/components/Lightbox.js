@@ -21,7 +21,7 @@ export default function Lightbox() {
   const [picIndex, setPicIndex] = useState(0);
   const [currentPic, setCurrentPic] = useState(pics[picIndex]);
 
-  const pictureHandler = (value) => {
+  const mobilePictureHandler = (value) => {
     switch (value) {
       case 'previous':
         if (picIndex > 0) {
@@ -43,15 +43,15 @@ export default function Lightbox() {
     }
   };
 
-  const laptop = useMediaQuery('only screen and (min-width: 768px)');
+  const laptop = useMediaQuery('only screen and (min-width: 640px)');
   if (laptop) {
-    return <DesktopLightbox />;
+    return <DesktopLightbox pics={pics} />;
   } else {
     return (
       <MobileLightbox
         pic={currentPic[0]}
-        previous={() => pictureHandler('previous')}
-        next={() => pictureHandler('next')}
+        previous={() => mobilePictureHandler('previous')}
+        next={() => mobilePictureHandler('next')}
       />
     );
   }
