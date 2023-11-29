@@ -2,7 +2,7 @@ export default function MobileLightbox({ pic, previous, next }) {
   return (
     <>
       <div className="relative">
-        <img src={pic} />
+        <img src={pic} alt="Picture of a product" />
         <div
           className="absolute top-1/2 left-5 bg-white text-black rounded-full w-10 h-10 font-bold text-center leading-10"
           onClick={previous}

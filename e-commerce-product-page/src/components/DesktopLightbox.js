@@ -15,10 +15,12 @@ export default function DesktopLightbox({ pics }) {
           <div
             className={picIndex === index ? active : inactive}
             onClick={() => setPicIndex(index)}
+            key={index}
           >
             <img
               className={picIndex === index ? activePic : inactivePic}
               src={pic[1]}
+              alt="Picture of a product"
             />
           </div>
         ))}

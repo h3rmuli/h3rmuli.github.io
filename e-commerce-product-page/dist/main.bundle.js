@@ -731,9 +731,10 @@ function DesktopLightbox(_ref) {
           },
           children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
             className: picIndex === index ? activePic : inactivePic,
-            src: pic[1]
+            src: pic[1],
+            alt: "Picture of a product"
           })
-        });
+        }, index);
       })
     })]
   });
@@ -750,7 +751,8 @@ function MobileLightbox(_ref) {
     children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
       className: "relative",
       children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
-        src: pic
+        src: pic,
+        alt: "Picture of a product"
       }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         className: "absolute top-1/2 left-5 bg-white text-black rounded-full w-10 h-10 font-bold text-center leading-10",
         onClick: previous,
@@ -1010,31 +1012,75 @@ function Navigation() {
 }
 ;// CONCATENATED MODULE: ./src/images/image-avatar.png
 const image_avatar_namespaceObject = __webpack_require__.p + "faae000862fa4e4f34e8.png";
+;// CONCATENATED MODULE: ./src/components/Cart.js
+
+
+
+function Cart() {
+  return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
+    children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      className: "bg-white rounded-lg sm:shadow-xl",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "font-bold p-5 border-b-2",
+        children: "Cart"
+      }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "flex flex-wrap p-5",
+        children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+          className: "w-full h-32 leading-[8] text-center",
+          children: "Your cart is empty."
+        })
+      })]
+    })
+  });
+}
 ;// CONCATENATED MODULE: ./src/components/NavigationBar.js
+function NavigationBar_slicedToArray(arr, i) { return NavigationBar_arrayWithHoles(arr) || NavigationBar_iterableToArrayLimit(arr, i) || NavigationBar_unsupportedIterableToArray(arr, i) || NavigationBar_nonIterableRest(); }
+function NavigationBar_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function NavigationBar_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return NavigationBar_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return NavigationBar_arrayLikeToArray(o, minLen); }
+function NavigationBar_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function NavigationBar_iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function NavigationBar_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
 
 
 function NavigationBar() {
+  var _useState = (0,react.useState)(false),
+    _useState2 = NavigationBar_slicedToArray(_useState, 2),
+    showCart = _useState2[0],
+    setShowCart = _useState2[1];
+  var toggleShowCart = function toggleShowCart() {
+    setShowCart(!showCart);
+  };
   return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
     children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-      className: "flex flex-row border-b-0 md:border-b-2 mx-5 md:mx-0",
+      className: "flex flex-row border-b-0 md:border-b-2 mx-5 sm:mx-10 md:mx-24 lg:mx-36",
       children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         className: "grow",
         children: /*#__PURE__*/(0,jsx_runtime.jsx)(Navigation, {})
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-        className: "py-8 mr-8 flex-none",
-        children: /*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+      }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+        className: "py-8 mr-8 flex-none relative",
+        onClick: function onClick() {
+          return toggleShowCart();
+        },
+        children: [/*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
           width: "22",
           height: "20",
           xmlns: "http://www.w3.org/2000/svg",
           children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
             d: "M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z",
             fill: "#69707D",
-            "fill-rule": "nonzero"
+            fillRule: "nonzero"
           })
-        })
+        }), showCart && /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
+          children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+            className: "absolute top-28 sm:top-16 -left-80 sm:-left-52 z-20 w-screen px-3 ml-5 sm:w-80",
+            children: /*#__PURE__*/(0,jsx_runtime.jsx)(Cart, {})
+          })
+        })]
       }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         className: "py-6 flex-none",
         children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
@@ -1046,10 +1092,32 @@ function NavigationBar() {
   });
 }
 ;// CONCATENATED MODULE: ./src/components/ProductDescription.js
+function ProductDescription_slicedToArray(arr, i) { return ProductDescription_arrayWithHoles(arr) || ProductDescription_iterableToArrayLimit(arr, i) || ProductDescription_unsupportedIterableToArray(arr, i) || ProductDescription_nonIterableRest(); }
+function ProductDescription_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function ProductDescription_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return ProductDescription_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return ProductDescription_arrayLikeToArray(o, minLen); }
+function ProductDescription_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function ProductDescription_iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function ProductDescription_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
 function ProductDescription() {
+  var _useState = (0,react.useState)(0),
+    _useState2 = ProductDescription_slicedToArray(_useState, 2),
+    count = _useState2[0],
+    setCount = _useState2[1];
+  var countHandler = function countHandler(e) {
+    if (e) {
+      var temp = count + 1;
+      setCount(temp);
+    } else {
+      var _temp = count - 1;
+      if (_temp >= 0) {
+        setCount(_temp);
+      }
+    }
+  };
   return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
     children: [/*#__PURE__*/(0,jsx_runtime.jsx)("h2", {
       className: "mt-10 text-ora uppercase font-bold font-Kumbh-Sans",
@@ -1074,6 +1142,64 @@ function ProductDescription() {
         className: "sm:w-full text-slate-500 leading-9 line-through",
         children: "$250.00"
       })]
+    }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      className: "flex flex-wrap mt-5 sm:mt-3 sm:gap-x-4",
+      children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+        className: "w-full sm:w-4/12 flex justify-between",
+        children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+          className: "bg-stone-200 py-7 pl-5 rounded-l-lg cursor-pointer",
+          onClick: function onClick() {
+            return countHandler(false);
+          },
+          children: /*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+            width: "12",
+            height: "4",
+            xmlns: "http://www.w3.org/2000/svg",
+            children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
+              d: "M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z",
+              fill: "#FF7E1B",
+              fillRule: "nonzero"
+            })
+          })
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+          className: "grow bg-stone-200"
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+          className: "bg-stone-200 py-4 font-bold",
+          children: count
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+          className: "grow bg-stone-200"
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+          className: "bg-stone-200 py-6 pr-5 sm:py-6 rounded-r-lg cursor-pointer",
+          onClick: function onClick() {
+            return countHandler(true);
+          },
+          children: /*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+            width: "12",
+            height: "12",
+            xmlns: "http://www.w3.org/2000/svg",
+            children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
+              d: "M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z",
+              fill: "#FF7E1B",
+              fillRule: "nonzero"
+            })
+          })
+        })]
+      }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+        className: "flex w-full sm:w-7/12 justify-center gap-x-2 py-4 bg-ora rounded-lg mt-4 sm:mt-0",
+        children: [/*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+          width: "22",
+          height: "20",
+          xmlns: "http://www.w3.org/2000/svg",
+          children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
+            d: "M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z",
+            fill: "white",
+            fillRule: "nonzero"
+          })
+        }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+          className: "text-white",
+          children: "Add to cart"
+        })]
+      })]
     })]
   });
 }
@@ -1087,7 +1213,7 @@ function ProductDescription() {
 var App = function App() {
   return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
     children: [/*#__PURE__*/(0,jsx_runtime.jsx)(NavigationBar, {}), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-      className: "flex gap-x-10 justify-center my-16 flex-wrap",
+      className: "flex gap-x-10 justify-center my-2 sm:my-16 flex-wrap",
       children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
         className: "w-full sm:w-1/3",
         children: /*#__PURE__*/(0,jsx_runtime.jsx)(Lightbox, {})
