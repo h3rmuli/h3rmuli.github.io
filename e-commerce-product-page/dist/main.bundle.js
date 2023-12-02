@@ -4664,21 +4664,126 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function DesktopLightbox(_ref) {
   var pics = _ref.pics;
   var _useState = (0,react.useState)(0),
     _useState2 = _slicedToArray(_useState, 2),
     picIndex = _useState2[0],
     setPicIndex = _useState2[1];
+  var _useState3 = (0,react.useState)(0),
+    _useState4 = _slicedToArray(_useState3, 2),
+    modalPicIndex = _useState4[0],
+    setModalPicIndex = _useState4[1];
+  var _useState5 = (0,react.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    showLBmodal = _useState6[0],
+    setShowLBModal = _useState6[1];
+  var _useState7 = (0,react.useState)(pics[modalPicIndex]),
+    _useState8 = _slicedToArray(_useState7, 2),
+    currentPic = _useState8[0],
+    setCurrentPic = _useState8[1];
   var active = 'rounded-lg ring-2 ring-ora';
   var inactive = 'rounded-lg';
   var activePic = 'rounded-lg opacity-50';
   var inactivePic = 'rounded-lg';
+  var toggleLBModal = function toggleLBModal() {
+    setShowLBModal(!showLBmodal);
+  };
+  var pictureHandler = function pictureHandler(value) {
+    switch (value) {
+      case 'previous':
+        if (modalPicIndex > 0) {
+          var temp = modalPicIndex - 1;
+          setModalPicIndex(temp);
+          setCurrentPic(pics[temp]);
+        }
+        break;
+      case 'next':
+        if (modalPicIndex < pics.length - 1) {
+          var _temp = modalPicIndex + 1;
+          setModalPicIndex(_temp);
+          setCurrentPic(pics[_temp]);
+        }
+        break;
+      default:
+        setModalPicIndex(0);
+        setCurrentPic(pics[modalPicIndex]);
+    }
+  };
+  var ModalLightBox = function ModalLightBox(_ref2) {
+    var onClose = _ref2.onClose,
+      pics = _ref2.pics,
+      previous = _ref2.previous,
+      next = _ref2.next;
+    return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
+      children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+        className: "flex fixed top-0 h-screen w-screen items-center justify-center bg-black/75 z-50",
+        children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+          className: "relative",
+          children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+            className: "max-h-[450px] rounded-lg",
+            src: pics[modalPicIndex][0]
+          }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+            className: "absolute top-1/2 -left-5 bg-white text-black rounded-full w-10 h-10 font-bold text-center leading-10 cursor-pointer",
+            onClick: previous,
+            children: "<"
+          }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+            className: "absolute top-1/2 -right-5 bg-white text-black rounded-full w-10 h-10 font-bold text-center leading-10 cursor-pointer",
+            onClick: next,
+            children: ">"
+          }), /*#__PURE__*/(0,jsx_runtime.jsx)("svg", {
+            className: "absolute -top-7 right-0 cursor-pointer",
+            width: "14",
+            height: "15",
+            xmlns: "http://www.w3.org/2000/svg",
+            onClick: function onClick() {
+              return onClose();
+            },
+            children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
+              d: "m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z",
+              fill: "#fff",
+              fillRule: "evenodd"
+            })
+          }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+            className: "grid grid-cols-4 gap-4 mt-6 absolute -bottom-50",
+            children: pics.map(function (pic, index) {
+              return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+                className: modalPicIndex === index ? active : inactive,
+                onClick: function onClick() {
+                  return setModalPicIndex(index);
+                },
+                children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+                  className: modalPicIndex === index ? activePic : inactivePic,
+                  src: pic[1],
+                  alt: "Picture of a product"
+                })
+              }, index);
+            })
+          })]
+        })
+      })
+    });
+  };
   return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
     children: [/*#__PURE__*/(0,jsx_runtime.jsx)("img", {
       className: "rounded-lg",
-      src: pics[picIndex][0]
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      src: pics[picIndex][0],
+      onClick: function onClick() {
+        return toggleLBModal();
+      }
+    }), showLBmodal && /*#__PURE__*/(0,react_dom.createPortal)( /*#__PURE__*/(0,jsx_runtime.jsx)(ModalLightBox, {
+      pics: pics,
+      previous: function previous() {
+        return pictureHandler('previous');
+      },
+      next: function next() {
+        return pictureHandler('next');
+      },
+      onClose: function onClose() {
+        return toggleLBModal();
+      }
+    }), document.body), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
       className: "grid grid-cols-4 gap-4 mt-6",
       children: pics.map(function (pic, index) {
         return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
@@ -4885,7 +4990,7 @@ function MobileNavigation(_ref) {
               children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
                 d: "m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z",
                 fill: "#69707D",
-                "fill-rule": "evenodd"
+                fillRule: "evenodd"
               })
             })
           }), /*#__PURE__*/(0,jsx_runtime.jsx)("ul", {
@@ -5086,13 +5191,23 @@ function NavigationBar_arrayWithHoles(arr) { if (Array.isArray(arr)) return arr;
 
 
 
+
 function NavigationBar() {
   var _useState = (0,react.useState)(false),
     _useState2 = NavigationBar_slicedToArray(_useState, 2),
     showCart = _useState2[0],
     setShowCart = _useState2[1];
+  var cart = useSelector(function (state) {
+    return state.cart;
+  });
   var toggleShowCart = function toggleShowCart() {
     setShowCart(!showCart);
+  };
+  var totalItems = function totalItems() {
+    var totalQuantity = cart.value.reduce(function (total, item) {
+      return total + item.quantity;
+    }, 0);
+    return totalQuantity;
   };
   return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
     children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
@@ -5111,9 +5226,12 @@ function NavigationBar() {
           xmlns: "http://www.w3.org/2000/svg",
           children: /*#__PURE__*/(0,jsx_runtime.jsx)("path", {
             d: "M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z",
-            fill: "#69707D",
+            fill: "#000",
             fillRule: "nonzero"
           })
+        }), totalItems() > 0 && /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+          className: "absolute top-6 -right-3 text-xs px-2 rounded-full bg-ora text-white",
+          children: totalItems()
         }), showCart && /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
           children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
             className: "absolute top-28 sm:top-16 -left-80 sm:-left-52 z-20 w-screen px-3 ml-5 sm:w-80",
