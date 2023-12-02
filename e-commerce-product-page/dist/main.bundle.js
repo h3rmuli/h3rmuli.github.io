@@ -5034,14 +5034,14 @@ function Cart() {
       children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
         className: "flex flex-wrap",
         children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-          className: "w-64",
+          className: "w-[360px] sm:w-64",
           children: cart.value.map(function (item, index) {
             return /*#__PURE__*/(0,jsx_runtime.jsx)(Product, {
               item: item
             }, index);
           })
         }), /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-          className: "bg-ora text-white text-center w-64 py-3 rounded-lg font-semibold mt-3",
+          className: "bg-ora text-white text-center w-[350px] sm:w-64 py-3 rounded-lg font-semibold mt-3",
           onClick: function onClick() {
             return checkoutHandler();
           },
