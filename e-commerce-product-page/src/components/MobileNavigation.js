@@ -12,7 +12,7 @@ export default function MobileNavigation({ entries }) {
     return (
       <>
         <div className="flex flex-row">
-          <div className="fixed h-screen w-2/3 top-0 left-0 bg-white">
+          <div className="fixed h-screen w-2/3 top-0 left-0 bg-white z-30">
             <div onClick={onClose} className="ml-6 mt-6">
               <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
                 <path

@@ -4874,7 +4874,7 @@ function MobileNavigation(_ref) {
       children: /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
         className: "flex flex-row",
         children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
-          className: "fixed h-screen w-2/3 top-0 left-0 bg-white",
+          className: "fixed h-screen w-2/3 top-0 left-0 bg-white z-30",
           children: [/*#__PURE__*/(0,jsx_runtime.jsx)("div", {
             onClick: onClose,
             className: "ml-6 mt-6",
