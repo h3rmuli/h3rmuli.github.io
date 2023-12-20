@@ -15,7 +15,7 @@ __webpack_require__.d(__webpack_exports__, {
 ;// CONCATENATED MODULE: ./src/images/pattern-bg-mobile.png
 const pattern_bg_mobile_namespaceObject = __webpack_require__.p + "3666aa38dccbc0ebd679.png";
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(521);
+var jsx_runtime = __webpack_require__(893);
 ;// CONCATENATED MODULE: ./src/components/BackgroundCmps/MobileBackground.js
 
 

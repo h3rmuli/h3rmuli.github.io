@@ -1,6 +1,6 @@
 import MapDisplay from './components/MapDisplay';
 import { useMediaQuery } from '@react-hook/media-query';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import SearchBar from './components/SearchBar.js';
 import Result from './components/Result.js';
 
@@ -36,9 +36,11 @@ const App = () => {
             </Suspense>
           )}
         </div>
-        <MapDisplay />
+        <div className="h-2/3 w-full">
+          <MapDisplay />
+        </div>
       </div>
-      <div className="fixed h-screen w-screen top-0 flex flex-col items-center">
+      <div className="fixed h-screen w-screen top-0 flex flex-col items-center z-50">
         <h1 className="my-6 text-white text-xl">IP Address Tracker</h1>
         <SearchBar />
         <Result result={mockResult} />

@@ -15,7 +15,7 @@ __webpack_require__.d(__webpack_exports__, {
 ;// CONCATENATED MODULE: ./src/images/pattern-bg-desktop.png
 const pattern_bg_desktop_namespaceObject = __webpack_require__.p + "5013c4f570ecf757f855.png";
 // EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(521);
+var jsx_runtime = __webpack_require__(893);
 ;// CONCATENATED MODULE: ./src/components/BackgroundCmps/DesktopBackground.js
 
 
